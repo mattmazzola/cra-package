@@ -10,6 +10,7 @@
     "@types/node": "^12.12.21",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
+    "fs-extra": "^8.1.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
@@ -19,7 +20,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "builduipackage": "tsc -p ./packageScripts/tsconfig.json --outDir ./package && tsc -p ./scripts/tsconfig.json && node ./scripts/createPackage.js",
+    "prepare": "npm run builduipackage"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -35,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^8.0.1"
   }
 }
